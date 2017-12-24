@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rent car</title>
+<meta name="keywords" content="web design template, free css html layout" />
+<meta name="description" content="web design template, free css html layout provided by templatemo.com for any website purpose" />
+
+<link rel="stylesheet" type='text/css' media="all" th:href="@{templatemo_style.css}" />
+<link rel="stylesheet" type='text/css' media="all" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type='text/css' media="all" th:href="@{https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css}" />
+
+
+</head>
+<body>
+
+   <!-- Example Tables Card -->
+          
+         
+                <div class="card-header">
+                    <i class="fa fa-table"></i> liste des véhicules
+                </div>
+                <br></br>
+                <div class="card-block">
+                    <div  id="table" class="table-responsive">
+             <table class="table table-bordered" width="100%" id="team" cellspacing="0">
+                           <thead>
+                                <tr>
+                                    <th> matricule</th>
+                                    <th>marque</th>
+                                     <th>nombre de place</th>
+                                       <th>Update</th>
+                                    <th>Delete</th>
+                                 </tr>
+                            </thead>
+                            <tbody>
+                          <tr  th:each="vihicule : ${v}">
+                            
+                           <td th:text="${vihicule.matricule}"></td>
+                             <td th:text="${vihicule.marque}"></td>
+                             <td th:text="${vihicule.nombre_place}"></td>
+                              
+                             <td><a th:href="@{'/editVihicule/' + ${vihicule.id}}">edit</a></td>
+                              <td><a  th:href="@{/vihicule/delete/{id}(id=${vihicule.id})}" onclick="return confirm('confirmer suppression')" >Delete</a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+             
+                </div>
+                </div>
+           
+
+    
+</body>
+</html>
+  
+                            
